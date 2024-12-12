@@ -6,13 +6,10 @@ from app.conf import config
 from app.handlers import health
 
 
-
-
 app = FastAPI()
 
 # include the routers
 app.include_router(health.router)
-
 
 
 # run the app
