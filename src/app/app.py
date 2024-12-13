@@ -14,7 +14,6 @@ app.include_router(health.router)
 app.include_router(campaign_handlers.router)
 
 
-
 # run the app
 if __name__ == "__main__":
     uvicorn.run(

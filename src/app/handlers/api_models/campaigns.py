@@ -3,6 +3,7 @@ from pydantic import UUID4, BaseModel
 
 from app.handlers.api_models.review import Review
 
+
 class Campaign(BaseModel):
     id: UUID4
     title: str

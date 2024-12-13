@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class Review(BaseModel):
     source: str
     url: str

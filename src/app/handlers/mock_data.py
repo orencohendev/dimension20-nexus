@@ -8,12 +8,9 @@ mock_campaigns = [
         "description": "A modern fantasy teen adventure at Aguefort Adventuring Academy.",
         "year": 2019,
         "reviews": [
-            {
-                "source": "AV Club",
-                "url": "https://avclub.example/fantasy-high-review"
-            }
+            {"source": "AV Club", "url": "https://avclub.example/fantasy-high-review"}
         ],
-        "is_sequel": False
+        "is_sequel": False,
     },
     {
         "id": str(uuid.uuid4()),
@@ -23,8 +20,8 @@ mock_campaigns = [
         "year": 2020,
         "reviews": [],
         "is_sequel": True,
-        "previous_campaign_id": None  # Or the UUID of the previous campaign if you have one
-    }
+        "previous_campaign_id": None,  # Or the UUID of the previous campaign if you have one
+    },
 ]
 
 mock_episodes = [
@@ -35,6 +32,6 @@ mock_episodes = [
         "episode_number": 1,
         "url": "https://www.dropout.tv/fantasy-high/episode-1",
         "air_date": "2019-06-10",
-        "description": "The Bad Kids arrive at Aguefort."
+        "description": "The Bad Kids arrive at Aguefort.",
     }
 ]

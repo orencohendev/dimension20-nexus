@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from pydantic.types import UUID4
 
+
 class Episode(BaseModel):
     id: UUID4
     campaign_id: UUID4
