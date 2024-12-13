@@ -8,4 +8,4 @@ router = APIRouter()
 
 @router.get("/campaigns")
 async def get_campaigns() -> List[Campaign]:
-    return mock_campaigns #type: ignore
+    return mock_campaigns  # type: ignore
