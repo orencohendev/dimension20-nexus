@@ -4,12 +4,15 @@ from app.conf import config
 
 # import the routers
 from app.handlers import health
+from app.handlers import campaign_handlers
 
 
 app = FastAPI()
 
 # include the routers
 app.include_router(health.router)
+app.include_router(campaign_handlers.router)
+
 
 
 # run the app
