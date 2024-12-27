@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Oren Cohen <oren@orencreates.com>"]
 readme = "README.md"
-packages = [{include = "dimension20_nexus"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -17,6 +16,7 @@ pytest = "^8.3.4"
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.13.0"
 black = "^24.10.0"
+debugpy = "^1.8.11"
 
 [build-system]
 requires = ["poetry-core"]

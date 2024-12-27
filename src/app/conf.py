@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
+import logging
 
 
 class Settings(BaseSettings):
@@ -12,3 +13,5 @@ class Settings(BaseSettings):
 
 
 config = Settings()
+
+logging.info(f"Configuration: {config.model_dump()}")
