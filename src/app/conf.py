@@ -13,5 +13,3 @@ class Settings(BaseSettings):
 
 
 config = Settings()
-
-logging.info(f"Configuration: {config.model_dump()}")

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from app.conf import config
+import logging
 
 # import the routers
 from app.handlers import health
