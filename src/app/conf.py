@@ -5,7 +5,7 @@ from pydantic import Field
 class Settings(BaseSettings):
     app_name: str = "Dimension 20 Nexus API"
     is_dev: bool = Field(default=False)
-    service_port: int = Field(default=8000)
+    service_port: int = Field(default=8000, env="PORT")
 
     class Config:
         env_file = ".env"
