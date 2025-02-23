@@ -18,7 +18,6 @@ from app.dal.models.base import Base
 from app.services.db_engine import get_engine
 
 
-
 def seed_data():
     engine = get_engine()  # A function that returns create_engine(DATABASE_URL)
     SessionLocal = sessionmaker(bind=engine)
@@ -47,11 +46,11 @@ def seed_data():
                 description=c.description,
                 year=c.year,
                 is_sequel=c.is_sequel,
-                previous_campaign_id=c.previous_campaign_id  # or None
+                previous_campaign_id=c.previous_campaign_id,  # or None
             )
             # Merge will insert if the primary key doesn’t exist, or update if it does
             session.merge(campaign_obj)
-            
+
             # Reviews
             review_json_ids = []
             for r in c.reviews:
@@ -62,12 +61,14 @@ def seed_data():
                     source=r.source,
                     url=r.url,
                     excerpt=r.excerpt,
-                    rating=r.rating
+                    rating=r.rating,
                 )
                 session.merge(review_obj)
-            
+
             # Delete reviews that are not in the JSON
-            session.query(ReviewModel).filter(ReviewModel.campaign_id == c.id).filter(~ReviewModel.id.in_(review_json_ids)).delete(synchronize_session=False)
+            session.query(ReviewModel).filter(ReviewModel.campaign_id == c.id).filter(
+                ~ReviewModel.id.in_(review_json_ids)
+            ).delete(synchronize_session=False)
 
         for e in episodes:
             episode_obj = EpisodeModel(
@@ -78,7 +79,7 @@ def seed_data():
                 url=e.url,
                 air_date=e.air_date,
                 description=e.description,
-                length=e.length
+                length=e.length,
             )
             session.merge(episode_obj)
 
@@ -89,6 +90,7 @@ def seed_data():
         print(f"Error during seeding: {ex}")
     finally:
         session.close()
+
 
 if __name__ == "__main__":
     seed_data()

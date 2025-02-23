@@ -4,7 +4,8 @@ from app.conf import settings
 
 
 def get_engine():
-    return create_engine(str(settings.DATABASE_URL))
+    return create_engine(settings.database_url)
+
 
 def get_async_engine():
-    return create_async_engine(str(settings.ASYNC_DATABASE_URL))
+    return create_async_engine(settings.async_database_url)

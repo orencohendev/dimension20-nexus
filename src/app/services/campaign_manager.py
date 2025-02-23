@@ -1,5 +1,3 @@
-
-
 from uuid import UUID
 from app.dal.repositories.campaign_repository import CampaignRepository
 from app.models.campaign import Campaign
