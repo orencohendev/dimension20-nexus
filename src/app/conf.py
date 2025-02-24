@@ -22,20 +22,20 @@ class Settings(BaseSettings):
     def check_db_url(cls, v: Optional[str], values: ValidationInfo) -> Optional[str]:
         if v is None:
             if (
-                values.data.get("DB_USER")
-                and values.data.get("DB_PASSWORD")
-                and values.data.get("DB_HOST")
-                and values.data.get("DB_PORT")
-                and values.data.get("DB_NAME")
+                values.data.get("db_user")
+                and values.data.get("db_password")
+                and values.data.get("db_host")
+                and values.data.get("db_port")
+                and values.data.get("db_name")
             ):
                 return str(
                     PostgresDsn.build(
                         scheme="postgresql",
-                        username=values.data["DB_USER"],
-                        password=values.data["DB_PASSWORD"],
-                        host=values.data["DB_HOST"],
-                        port=int(values.data["DB_PORT"]),
-                        path=f"{values.data['DB_NAME']}",
+                        username=values.data["db_user"],
+                        password=values.data["db_password"],
+                        host=values.data["db_host"],
+                        port=int(values.data["db_port"]),
+                        path=f"{values.data['db_name']}",
                     )
                 )
         return str(v)
