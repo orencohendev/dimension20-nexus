@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Oren Cohen <oren@orencreates.com>"]
 readme = "README.md"
-packages = [{include = "dimension20_nexus"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -12,11 +11,16 @@ fastapi = "^0.115.6"
 uvicorn = {extras = ["standard"], version = "^0.32.1"}
 pydantic-settings = "^2.6.1"
 pytest = "^8.3.4"
+sqlalchemy = "^2.0.38"
+psycopg2-binary = "^2.9.10"
+asyncpg = "^0.30.0"
+greenlet = "^3.1.1"
 
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.13.0"
 black = "^24.10.0"
+debugpy = "^1.8.11"
 
 [build-system]
 requires = ["poetry-core"]

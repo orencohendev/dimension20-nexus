@@ -2,7 +2,7 @@ import uuid
 
 mock_campaigns = [
     {
-        "id": str(uuid.uuid4()),
+        "id": "d9e7f6ef-da2b-4836-8b06-f2aecfe9bb55",
         "title": "Fantasy High",
         "url": "https://www.dropout.tv/dimension-20/season:1",
         "description": "A modern fantasy teen adventure at Aguefort Adventuring Academy.",
