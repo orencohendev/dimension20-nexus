@@ -12,7 +12,7 @@ from app.handlers import episode_handler
 
 app = FastAPI()
 
-build_dir = "app/frontend_build/build" 
+build_dir = Path(__file__).parent / "frontend_build" / "build"
 app.mount("/static", StaticFiles(directory=f'{build_dir}/static'), name="static")
 
 # include the routers
