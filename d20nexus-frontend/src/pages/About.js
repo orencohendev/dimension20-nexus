@@ -10,7 +10,7 @@ function About() {
       <p>
         <strong>GitHub Repo:</strong>{" "}
         <a
-          href="https://github.com/your-dimension20-repo"
+          href="https://github.com/orencohendev/dimension20-nexus"
           target="_blank"
           rel="noreferrer"
         >
@@ -18,7 +18,8 @@ function About() {
         </a>
       </p>
       <p>
-        <strong>Twitter/Threads:</strong> Link to your socials
+        <strong>Twitter:</strong> <a href="https://x.com/theorencohen">@theorencohen</a>
+        <strong>Threads:</strong> <a href="https://threads.net/@theorencohen">@theorencohen</a>
       </p>
       <p>
         <strong>Contact:</strong>{" "}
