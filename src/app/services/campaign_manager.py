@@ -16,3 +16,9 @@ class CampaignManager:
         campaign = await CampaignRepository.get_by_id(campaign_id)
 
         return campaign
+
+    @staticmethod
+    async def get_campaign_episodes(campaign_id: UUID):
+        episodes = await CampaignRepository.get_episodes(campaign_id)
+
+        return episodes

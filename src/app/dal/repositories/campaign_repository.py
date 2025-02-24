@@ -6,6 +6,7 @@ from typing import List, Optional
 
 from app.dal.models.campaign_model import CampaignModel
 from app.models.campaign import Campaign
+from app.models.episode import Episode
 from app.services import db_engine
 
 
@@ -44,3 +45,19 @@ class CampaignRepository:
                 if db_model
                 else None
             )
+
+    @staticmethod
+    async def get_episodes(campaign_id: UUID) -> List[Episode]:
+        """Retrieve all episodes for a campaign asynchronously."""
+        async with AsyncSession(db_engine.get_async_engine()) as session:
+            result = await session.execute(
+                select(CampaignModel)
+                .options(selectinload(CampaignModel.episodes))  # EAGER LOAD
+                .filter(CampaignModel.id == campaign_id)
+            )
+            db_model = result.scalars().first()
+
+            return [
+                Episode.model_validate(db_model, from_attributes=True)
+                for db_model in db_model.episodes
+            ]
