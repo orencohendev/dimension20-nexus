@@ -20,8 +20,8 @@ app.include_router(health.router)
 app.include_router(campaign_handlers.router, prefix="/api")
 app.include_router(episode_handler.router, prefix="/api")
 
-@app.get("/")
-async def serve_react_app():
+@app.get("/{full_path:path}")
+async def serve_react_app(full_path: str):
     index_file = Path(f'{build_dir}/index.html')
     if index_file.exists():
         return await StaticFiles(directory=str(build_dir)).get_response("index.html", {"method": "GET", "headers": {}})

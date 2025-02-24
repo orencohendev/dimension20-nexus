@@ -19,6 +19,7 @@ function About() {
       </p>
       <p>
         <strong>Twitter:</strong> <a href="https://x.com/theorencohen">@theorencohen</a>
+        <br />
         <strong>Threads:</strong> <a href="https://threads.net/@theorencohen">@theorencohen</a>
       </p>
       <p>
