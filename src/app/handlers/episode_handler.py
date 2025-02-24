@@ -13,6 +13,7 @@ async def get_episodes():
 
     return res
 
+
 @router.get("/episodes/{episode_id}")
 async def get_episode(episode_id: UUID):
     res = await EpisodeManager.get_episode_by_id(episode_id)
