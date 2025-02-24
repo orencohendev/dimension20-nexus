@@ -1,0 +1,109 @@
+[
+    {
+      "id": "3cdd6cef-a045-4675-b2e0-748fdcfe0c28",
+      "title": "Fantasy High",
+      "url": "https://www.dropout.tv/dimension-20/season:1",
+      "description": "A modern fantasy teen adventure at Aguefort Adventuring Academy.",
+      "year": 2019,
+      "reviews": [
+        {
+          "source": "Reviewsday Tuesday (Medium)",
+          "url": "https://medium.com/reviewsday-tuesday/dimension-20-fantasy-high-e2c0cb62461c",
+          "excerpt": "A review of the first season of Dropout's D&D show",
+          "rating": 9,
+          "id": "0e77cdf7-6286-456d-b522-704d5cfa5bfd"
+        }
+      ],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "title": "Escape From the Bloodkeep",
+      "url": "https://www.dropout.tv/dimension-20/season:2",
+      "description": "The Lord of Shadows is dead. What will his most trusted advisers do in this hour of darkness?",
+      "year": 2019,
+      "id": "f7b3b2b4-1b7b-4b1b-8b3b-1b7b4b1b8b3b",
+      "reviews":[],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "id": "d08f1ef0-0dac-4083-85ac-ccab5a3b8ba5",
+      "title": "The Unsleeping City",
+      "url": "https://www.dropout.tv/dimension-20/season:3",
+      "description": "A modern fantasy adventure in New York City.",
+      "year": 2020,
+      "reviews": [
+        {
+          "source": "The Mary Sue",
+          "url": "https://www.themarysue.com/dimension-20-unsleeping-city-review/",
+          "excerpt": "A review of the first season of Dropout's D&D show",
+          "rating": 8
+        }
+      ],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "title": "Tiny Heist",
+      "url": "https://www.dropout.tv/dimension-20/season:4",
+      "description": "A heist adventure in a world of tiny people.",
+      "year": 2019,
+      "id": "cc7a5a39-692b-49e5-85c6-377cb7f043eb",
+      "reviews":[],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "title": "A Crown of Candy",
+      "url": "https://www.dropout.tv/dimension-20/season:5",
+      "description": "A fantasy epic set in the world of Calorum.",
+      "year": 2020,
+      "id": "f6826ac4-373d-4b76-9b49-96b619641bbb",
+      "reviews":[],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "title": "Pirates of Leviathan",
+      "url": "https://www.dropout.tv/dimension-20/season:6",
+      "description": "A pirate adventure on the high seas.",
+      "year": 2020,
+      "id": "55b8b597-26ae-42e7-8bdb-12321aa564d4",
+      "reviews":[],
+      "is_sequel": false,
+      "previous_campaign_id": null
+    },
+    {
+      "id": "326b7ed3-47dc-4eb5-bca9-4da3045fd9de",
+      "title": "Fantasy High: Sophomore Year",
+      "url": "https://www.dropout.tv/dimension-20/season:7",
+      "description": "The Bad Kids return for a second year of adventures.",
+      "year": 2020,
+      "reviews": [],
+      "is_sequel": true,
+      "previous_campaign_id": "3cdd6cef-a045-4675-b2e0-748fdcfe0c28"
+    },
+    {
+      "id": "64d0d317-d14d-4649-af08-e59a343b2109",
+      "title": "The Unsleeping City: Chapter II",
+      "url": "https://www.dropout.tv/dimension-20/season:8",
+      "description": "The heroes return to New York City for a new adventure.",
+      "year": 2021,
+      "reviews": [],
+      "is_sequel": true,
+      "previous_campaign_id": "d08f1ef0-0dac-4083-85ac-ccab5a3b8ba5"
+    },
+    {
+      "title": "Mice & Murder",
+      "description": "A murder mystery set in a world of talking animals.",
+      "url": "https://www.dropout.tv/dimension-20/season:9",
+      "year": 2021,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "b63ad0be-aeb6-4e73-af1b-c8df31fdd31a"
+    }
+
+  ]
+  
