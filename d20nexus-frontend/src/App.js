@@ -1,12 +1,27 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import "./App.css";
+import ReactGA from 'react-ga4';
+
+const TRACKING_ID = "G-G5KJRESKTS";
+ReactGA.initialize(TRACKING_ID);
+
+const TrackPageView = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
+  return null; // This component doesn't render anything
+};
 
 function App() {
   return (
     <Router>
+      <TrackPageView /> {/* Tracks page view on every route change */}
       <div style={styles.container}>
         <header style={styles.header}>
           <h1 style={styles.title}>Dimension 20 Nexus</h1>
