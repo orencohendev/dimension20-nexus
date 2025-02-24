@@ -57,6 +57,9 @@ class CampaignRepository:
             )
             db_model = result.scalars().first()
 
+            if not db_model:
+                return []
+
             return [
                 Episode.model_validate(db_model, from_attributes=True)
                 for db_model in db_model.episodes

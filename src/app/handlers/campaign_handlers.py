@@ -18,6 +18,7 @@ async def get_campaigns() -> List[Campaign]:
 async def get_campaign_by_id(campaign_id: UUID) -> Campaign:
     return await CampaignManager.get_campaign_by_id(campaign_id)
 
+
 @router.get("/campaigns/{campaign_id}/episodes")
 async def get_campaign_episodes(campaign_id: UUID) -> List[Episode]:
     return await CampaignManager.get_campaign_episodes(campaign_id)
