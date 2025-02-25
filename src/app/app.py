@@ -10,7 +10,11 @@ from app.handlers import campaign_handlers
 from app.handlers import episode_handler
 
 
-app = FastAPI()
+app = FastAPI(
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    openapi_url="/api/openapi.json",
+)
 
 build_dir = Path(__file__).parent / "frontend_build" / "build"
 app.mount("/static", StaticFiles(directory=f"{build_dir}/static"), name="static")

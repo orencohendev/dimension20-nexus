@@ -1,178 +1,268 @@
 import React, { useEffect, useState } from "react";
+import {
+  Container,
+  Typography,
+  Box,
+  Card,
+  CardContent,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Link,
+  Button,
+  List,
+  ListItem,
+  ListItemText
+} from "@mui/material";
 
 function Home() {
-  // Seasons list
-  const [seasons, setSeasons] = useState([]);
-
-  // Which season is selected
-  const [selectedSeasonId, setSelectedSeasonId] = useState("");
-
-  // The fetched season info (object)
-  const [seasonInfo, setSeasonInfo] = useState(null);
-
-  // The episodes that belong to the selected season
+  // State for campaigns
+  const [campaigns, setCampaigns] = useState([]);
+  const [selectedCampaignId, setSelectedCampaignId] = useState("");
+  const [campaignInfo, setCampaignInfo] = useState(null);
   const [episodes, setEpisodes] = useState([]);
-
-  // The currently chosen episode (entire object, not just ID)
   const [selectedEpisode, setSelectedEpisode] = useState(null);
 
-  // Fetch all seasons on first load
+  // Fetch all campaigns on mount
   useEffect(() => {
     fetch("/api/campaigns")
       .then((res) => res.json())
-      .then((data) => {
-        setSeasons(data);
-      })
+      .then((data) => setCampaigns(data))
       .catch((err) => console.error("Error fetching campaigns:", err));
   }, []);
 
-  // Whenever selectedSeasonId changes, fetch that season's details & episodes
+  // Fetch campaign info and episodes when a campaign is selected
   useEffect(() => {
-    if (selectedSeasonId) {
-      // Fetch the detailed season info
-      fetch(`/api/campaigns/${selectedSeasonId}`)
+    if (selectedCampaignId) {
+      fetch(`/api/campaigns/${selectedCampaignId}`)
         .then((res) => res.json())
-        .then((data) => {
-          setSeasonInfo(data);
-        })
-        .catch((err) => console.error("Error fetching season info:", err));
+        .then((data) => setCampaignInfo(data))
+        .catch((err) => console.error("Error fetching campaign info:", err));
 
-      // Fetch episodes for that season
-      fetch(`/api/campaigns/${selectedSeasonId}/episodes`)
+      fetch(`/api/campaigns/${selectedCampaignId}/episodes`)
         .then((res) => res.json())
         .then((data) => {
           setEpisodes(data);
-          setSelectedEpisode(null); // Reset the episode selection
+          setSelectedEpisode(null); // Reset episode selection
         })
         .catch((err) => console.error("Error fetching episodes:", err));
     } else {
-      setSeasonInfo(null);
+      setCampaignInfo(null);
       setEpisodes([]);
       setSelectedEpisode(null);
     }
-  }, [selectedSeasonId]);
+  }, [selectedCampaignId]);
 
-  function handleSeasonChange(e) {
-    setSelectedSeasonId(e.target.value);
-  }
+  const handleCampaignChange = (event) => {
+    setSelectedCampaignId(event.target.value);
+  };
 
-  // When the user picks an episode, find it in the episodes array
-  function handleEpisodeChange(e) {
-    const epId = e.target.value;
+  const handleEpisodeChange = (event) => {
+    const epId = event.target.value;
     const epObject = episodes.find((ep) => ep.id === epId);
     setSelectedEpisode(epObject || null);
-  }
+  };
 
   return (
-    <div style={styles.container}>
-      <h2>Select a Season</h2>
-      <select onChange={handleSeasonChange} value={selectedSeasonId}>
-        <option value="">-- Choose a season --</option>
-        {seasons.map((season) => (
-          <option key={season.id} value={season.id}>
-            {season.title}
-          </option>
-        ))}
-      </select>
-
-      {/* Show campaign info (title, url, description, year, reviews) */}
-      {seasonInfo && (
-        <div style={styles.infoBox}>
-          <h3>{seasonInfo.title}</h3>
-          <p>
-            <strong>Year:</strong> {seasonInfo.year}
-          </p>
-          <p>
-            <strong>Description:</strong> {seasonInfo.description}
-          </p>
-          {seasonInfo.url && (
-            <p>
-              <strong>Link:</strong>{" "}
-              <a href={seasonInfo.url} target="_blank" rel="noreferrer">
-                {seasonInfo.url}
-              </a>
-            </p>
-          )}
-
-          {/* Reviews Section */}
-          {seasonInfo.reviews && seasonInfo.reviews.length > 0 && (
-            <>
-              <h4>Reviews:</h4>
-              <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-                {seasonInfo.reviews.map((review) => (
-                  <li key={review.id} style={styles.reviewItem}>
-                    <strong>{review.source}</strong>
-                    <br />
-                    <a href={review.url} target="_blank" rel="noreferrer">
-                      {review.url}
-                    </a>
-                    <p>{review.excerpt}</p>
-                    <p>
-                      <em>Rating:</em> {review.rating}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-        </div>
-      )}
-
-      <h2>Select an Episode</h2>
-      <select
-        onChange={handleEpisodeChange}
-        value={selectedEpisode?.id || ""}
-        disabled={!episodes.length}
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      {/* Hero / Intro Section */}
+      <Box
+        sx={{
+          textAlign: "center",
+          mb: 4,
+          p: 3,
+          backgroundColor: "#f5f5f5",
+          borderRadius: 2
+        }}
       >
-        <option value="">-- Choose an episode --</option>
-        {episodes.map((ep) => (
-          <option key={ep.id} value={ep.id}>
-            {ep.title}
-          </option>
-        ))}
-      </select>
+        <Typography variant="h3" gutterBottom>
+          Dimension 20 Nexus
+        </Typography>
+        <Typography variant="h6" color="text.secondary" gutterBottom>
+          A free, open-source resource for Dimension 20 data
+        </Typography>
+        <Box sx={{ mt: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            href="/api/docs"
+            target="_blank"
+            sx={{ mr: 2 }}
+          >
+            API Docs
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            href="https://github.com/orencohendev/dimension20-nexus"
+            target="_blank"
+          >
+            Contribute on GitHub
+          </Button>
+        </Box>
+      </Box>
 
-      {/* Show selected episode's details */}
-      {selectedEpisode && (
-        <div style={styles.infoBox}>
-          <h4>{selectedEpisode.title}</h4>
-          <p>
-            <strong>Episode Number:</strong> {selectedEpisode.episode_number}
-          </p>
-          <p>
-            <strong>Air Date:</strong> {selectedEpisode.air_date}
-          </p>
-          <p>
-            <strong>Description:</strong> {selectedEpisode.description}
-          </p>
-          {selectedEpisode.url && (
-            <p>
-              <strong>Link:</strong>{" "}
-              <a href={selectedEpisode.url} target="_blank" rel="noreferrer">
-                Watch Here
-              </a>
-            </p>
-          )}
-        </div>
+      {/* Infographic / Bulleted Highlights */}
+      <Card sx={{ mb: 4 }}>
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            What You Should Know
+          </Typography>
+          <List>
+            <ListItem>
+              <ListItemText
+                primary="What is Dimension 20 Nexus?"
+                secondary="It's a community-driven project that centralizes Dimension 20 data—campaigns, episodes, reviews, and more—in one place."
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary="Why an API?"
+                secondary="We provide structured data so you can build apps, bots, or websites without scraping the web."
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary="How You Can Use It"
+                secondary="Dive into our docs, grab JSON from our endpoints, or fork the code to contribute your own improvements."
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary="Why We're Proud"
+                secondary="Even if it ends up being niche, we've created a resource that can spark new creative ideas in the fandom."
+              />
+            </ListItem>
+          </List>
+        </CardContent>
+      </Card>
+
+      {/* Campaign Selection Section */}
+      <Card sx={{ mb: 4 }}>
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            Explore Campaigns
+          </Typography>
+          <FormControl fullWidth sx={{ mt: 2 }}>
+            <InputLabel id="campaign-select-label">Campaign</InputLabel>
+            <Select
+              labelId="campaign-select-label"
+              id="campaign-select"
+              value={selectedCampaignId}
+              label="Campaign"
+              onChange={handleCampaignChange}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {campaigns.map((campaign) => (
+                <MenuItem key={campaign.id} value={campaign.id}>
+                  {campaign.title}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </CardContent>
+      </Card>
+
+      {/* Campaign Details */}
+      {campaignInfo && (
+        <Card sx={{ mb: 4 }}>
+          <CardContent>
+            <Typography variant="h5">{campaignInfo.title}</Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              {campaignInfo.year}
+            </Typography>
+            <Typography variant="body1" sx={{ mt: 1 }}>
+              {campaignInfo.description}
+            </Typography>
+            {campaignInfo.url && (
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                <strong>Link:</strong>{" "}
+                <Link href={campaignInfo.url} target="_blank" rel="noopener">
+                  Visit Campaign Page
+                </Link>
+              </Typography>
+            )}
+            {campaignInfo.reviews && campaignInfo.reviews.length > 0 && (
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="h6">Reviews</Typography>
+                {campaignInfo.reviews.map((review) => (
+                  <Box
+                    key={review.id}
+                    sx={{ border: "1px dashed #ccc", p: 1, mb: 1, borderRadius: 1 }}
+                  >
+                    <Typography variant="subtitle2">{review.source}</Typography>
+                    <Typography variant="body2">
+                      <Link href={review.url} target="_blank" rel="noopener">
+                        {review.url}
+                      </Link>
+                    </Typography>
+                    <Typography variant="body2">{review.excerpt}</Typography>
+                    <Typography variant="caption">
+                      Rating: {review.rating}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            )}
+          </CardContent>
+        </Card>
       )}
-    </div>
+
+      {/* Episode Selection Section */}
+      {campaignInfo && (
+        <Card sx={{ mb: 4 }}>
+          <CardContent>
+            <Typography variant="h5" gutterBottom>
+              Episodes
+            </Typography>
+            <FormControl fullWidth sx={{ mt: 2 }}>
+              <InputLabel id="episode-select-label">Episode</InputLabel>
+              <Select
+                labelId="episode-select-label"
+                id="episode-select"
+                value={selectedEpisode ? selectedEpisode.id : ""}
+                label="Episode"
+                onChange={handleEpisodeChange}
+                disabled={episodes.length === 0}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {episodes.map((ep) => (
+                  <MenuItem key={ep.id} value={ep.id}>
+                    {ep.title}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            {/* Episode Details */}
+            {selectedEpisode && (
+              <Box sx={{ mt: 3 }}>
+                <Typography variant="h6">{selectedEpisode.title}</Typography>
+                <Typography variant="subtitle1" color="text.secondary">
+                  Episode {selectedEpisode.episode_number} - {selectedEpisode.air_date}
+                </Typography>
+                <Typography variant="body1" sx={{ mt: 1 }}>
+                  {selectedEpisode.description}
+                </Typography>
+                {selectedEpisode.url && (
+                  <Typography variant="body2" sx={{ mt: 1 }}>
+                    <Link href={selectedEpisode.url} target="_blank" rel="noopener">
+                      Watch Episode
+                    </Link>
+                  </Typography>
+                )}
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+      )}
+    </Container>
   );
 }
-
-const styles = {
-  container: {
-    padding: "1rem",
-  },
-  infoBox: {
-    border: "1px solid #ccc",
-    padding: "1rem",
-    marginTop: "1rem",
-  },
-  reviewItem: {
-    marginBottom: "1rem",
-    padding: "0.5rem",
-    border: "1px dashed #ccc",
-  },
-};
 
 export default Home;
