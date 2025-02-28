@@ -97,7 +97,156 @@
       "is_sequel": false,
       "previous_campaign_id": null,
       "id": "b63ad0be-aeb6-4e73-af1b-c8df31fdd31a"
+    },
+    {
+      "title": "Misfits And Magic",
+      "description": "GM Aabria Iyengar brings you the tale of four American high schoolers swept into a world of wizards.",
+      "url": "https://www.dropout.tv/dimension-20/season:10",
+      "year": 2021,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "c07495a7-3729-4c12-91f7-ab88013652c0"
+    },
+    {
+      "title": "The Seven",
+      "description": "Seven student adventurers must face their greatest challenge yet - graduation.",
+      "url": "https://www.dropout.tv/dimension-20/season:11",
+      "year": 2021,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "d628f1f7-3256-4f4b-935b-dcc6acd2d90c"
+    },
+    {
+      "title": "Shriek Week",
+      "description": "Four monstrous students at Bram University face off against hormones, mysteries, and the most epic party in monster history.",
+      "url": "https://www.dropout.tv/dimension-20/season:12",
+      "year": 2021,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "1d3e98bf-7054-48f8-afc2-d642ca93a6bf"
+    },
+    {
+      "title": "A Starstruck Odyssey",
+      "description": "It's a tough galaxy out there, but somebody's gotta live in it...it might as well be you.",
+      "url": "https://www.dropout.tv/dimension-20/season:13",
+      "year": 2022,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "4123d1f9-6737-4761-bf7e-fbb52e654e58"
+    },
+    {
+      "title": "Coffin Run",
+      "description": "GM Jasmine Bhullar weaves a tale as old as many lifetimes, in the gloomy land of Transylvania.",
+      "url": "https://www.dropout.tv/dimension-20/season:14",
+      "year": 2022,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "9cc0fba9-ce63-48b9-993c-9cd2b0096a85"
+    },
+    {
+      "title": "A Court of Fey & Flowers",
+      "description": "GM Aabria Iyengar and her pack of pixies prepare for the most magical event of the season.",
+      "url": "https://www.dropout.tv/dimension-20/season:15",
+      "year": 2022,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "19525b07-4175-49f9-b11c-099da9c48604"
+    },
+    {
+      "title": "Neverafter",
+      "description": "In the world of the Neverafter, not all fairy tales have happy endings.",
+      "url": "https://www.dropout.tv/dimension-20/season:16",
+      "year": 2022,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "30504975-4ee5-478d-9264-d6a6d7253ad5"
+    },
+    {
+      "title": "The Ravening War",
+      "description": "In an age before A Crown of Candy, the seeds of conflict began to take root - and soon, all of Calorum was enveloped in The Ravening War.",
+      "url": "https://www.dropout.tv/dimension-20/season:17",
+      "year": 2023,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "d2345aaf-5c37-485d-98c1-b13ae105dfab"
+    },
+    {
+      "title": "Dungeons and Drag Queens",
+      "description": "Four drag queen adventurers death drop into the underworld.",
+      "url": "https://www.dropout.tv/dimension-20/season:18",
+      "year": 2023,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "3304b4e5-eba3-4f17-8bb0-62a849480934"
+    },
+    {
+      "title": "Mentopolis",
+      "description": "Welcome to Mentopolis - the city that exists only in your mind.",
+      "url": "https://www.dropout.tv/dimension-20/season:19",
+      "year": 2023,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "db79c554-b868-4147-b759-846f0405b2b4"
+    },
+    {
+      "title": "Burrow's End",
+      "description": "A family of stoats must sacrifice everything to survive in a harsh, cruel world.",
+      "url": "https://www.dropout.tv/dimension-20/season:20",
+      "year": 2023,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "ccc1baef-c0ee-4365-b2f2-3ccdb6d3fa90"
+    },
+    {
+      "title": "Fantasy High: Junior Year",
+      "description": "The Bad Kids return for a new year at the Aguefort Adventuring Academy - filled with new challenges, new enemies, and new allies.",
+      "url": "https://www.dropout.tv/dimension-20/season:21",
+      "year": 2024,
+      "reviews": [],
+      "is_sequel": true,
+      "previous_campaign_id": "326b7ed3-47dc-4eb5-bca9-4da3045fd9de",
+      "id": "570bc84b-94ba-4832-bc55-e6e647d506e9"
+    },
+    {
+      "title": "Never Stop Blowing Up",
+      "description": "Six nobodies are about to step into the spotlight and reload all the action.",
+      "url": "https://www.dropout.tv/dimension-20/season:22",
+      "year": 2024,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "f9f0dc8b-97be-4bc2-9d45-70b071ed5107"
+    },
+    {
+      "title": "Misfits and Magic Season 2",
+      "description": "GM Aabria Iyengar brings you the tale of four American high schoolers swept into a world of wizards.",
+      "url": "https://www.dropout.tv/dimension-20/season:23",
+      "year": 2024,
+      "reviews": [],
+      "is_sequel": true,
+      "previous_campaign_id": "c07495a7-3729-4c12-91f7-ab88013652c0",
+      "id": "abf46cfc-771c-4ce9-8838-06502dc96dd3"
+    },
+    {
+      "title": "Dungeons and Drag Queens Season 2",
+      "description": "Four drag queen adventurers death drop into the underworld.",
+      "url": "https://www.dropout.tv/dimension-20/season:24",
+      "year": 2025,
+      "reviews": [],
+      "is_sequel": true,
+      "previous_campaign_id": "3304b4e5-eba3-4f17-8bb0-62a849480934",
+      "id": "f0e432a6-8ae2-4240-b3f3-02e904222608"
     }
-
   ]
   
