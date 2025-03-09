@@ -247,6 +247,16 @@
       "is_sequel": true,
       "previous_campaign_id": "3304b4e5-eba3-4f17-8bb0-62a849480934",
       "id": "f0e432a6-8ae2-4240-b3f3-02e904222608"
+    },
+    {
+      "title": "Titan Takedown",
+      "description": "When the gods brawl, heroes will fall.",
+      "url": "https://www.dropout.tv/dimension-20/season:25",
+      "year": 2025,
+      "reviews": [],
+      "is_sequel": false,
+      "previous_campaign_id": null,
+      "id": "8e6a505c-1e1a-4ba8-8342-e44086670f45"
     }
   ]
   
