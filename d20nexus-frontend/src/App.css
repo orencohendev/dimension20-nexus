@@ -1,38 +1,21 @@
-.App {
-  text-align: center;
+/* app.css */
+
+/* Remove any default global text centering */
+body, #root {
+  text-align: left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Optional: A global container style you can use if needed */
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1280px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Reset default link styles */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* You can add any additional global styles here to complement Material‑UI */
