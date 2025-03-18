@@ -1,22 +1,24 @@
 // src/pages/Home.tsx
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import {
-  Box,
   Container,
   Typography,
-  Button,
+  Box,
   Card,
   CardContent,
-  List,
-  ListItem,
-  ListItemText,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
-  Link
+  Link,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  // ... other MUI components if needed
 } from '@mui/material'
+import { SelectChangeEvent } from '@mui/material/Select'
 
 interface Review {
   id: string
@@ -46,65 +48,89 @@ interface Episode {
 }
 
 const Home: React.FC = () => {
-  const { campaignSlug } = useParams<{ campaignSlug?: string }>()
+  const { campaignSlug, episodeSlug } = useParams<{ campaignSlug?: string, episodeSlug?: string }>()
+  const navigate = useNavigate()
+
   const [campaigns, setCampaigns] = useState<Campaign[]>([])
   const [selectedCampaignId, setSelectedCampaignId] = useState<string>('')
   const [campaignInfo, setCampaignInfo] = useState<Campaign | null>(null)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null)
 
-  // Convert a campaign title to a "slug"
+  // Utility: convert title to slug (lowercase with dashes)
   const computeSlug = (title: string): string =>
     title.toLowerCase().trim().replace(/\s+/g, '-')
 
-  // Fetch all campaigns on mount
+  // Fetch campaigns on mount
   useEffect(() => {
     fetch('/api/campaigns')
-      .then((res) => res.json())
+      .then(res => res.json())
       .then((data: Campaign[]) => {
         setCampaigns(data)
         if (campaignSlug) {
           const matched = data.find(
-            (c) => computeSlug(c.title) === campaignSlug.toLowerCase()
+            c => computeSlug(c.title) === campaignSlug.toLowerCase()
           )
           if (matched) {
             setSelectedCampaignId(matched.id)
           }
         }
       })
-      .catch((err) => console.error('Error fetching campaigns:', err))
+      .catch(err => console.error('Error fetching campaigns:', err))
   }, [campaignSlug])
 
-  // When selectedCampaignId changes, fetch campaign details & episodes
+  // Fetch campaign info and episodes when a campaign is selected
   useEffect(() => {
     if (selectedCampaignId) {
       fetch(`/api/campaigns/${selectedCampaignId}`)
-        .then((res) => res.json())
+        .then(res => res.json())
         .then((data: Campaign) => setCampaignInfo(data))
-        .catch((err) => console.error('Error fetching campaign info:', err))
-
+        .catch(err => console.error('Error fetching campaign info:', err))
+      
       fetch(`/api/campaigns/${selectedCampaignId}/episodes`)
-        .then((res) => res.json())
+        .then(res => res.json())
         .then((data: Episode[]) => {
           setEpisodes(data)
-          setSelectedEpisode(null)
+          if (episodeSlug) {
+            const matchedEp = data.find(
+              ep => computeSlug(ep.title) === episodeSlug.toLowerCase()
+            )
+            if (matchedEp) {
+              setSelectedEpisode(matchedEp)
+            } else {
+              setSelectedEpisode(null)
+            }
+          } else {
+            setSelectedEpisode(null)
+          }
         })
-        .catch((err) => console.error('Error fetching episodes:', err))
+        .catch(err => console.error('Error fetching episodes:', err))
     } else {
       setCampaignInfo(null)
       setEpisodes([])
       setSelectedEpisode(null)
     }
-  }, [selectedCampaignId])
+  }, [selectedCampaignId, episodeSlug])
 
-  const handleCampaignChange = (e: React.ChangeEvent<{ value: unknown }>) => {
-    setSelectedCampaignId(e.target.value as string)
+  const handleCampaignChange = (e: SelectChangeEvent<string>) => {
+    const newCampaignId = e.target.value
+    setSelectedCampaignId(newCampaignId)
+    const selectedCampaign = campaigns.find(c => c.id === newCampaignId)
+    if (selectedCampaign) {
+      const newSlug = computeSlug(selectedCampaign.title)
+      navigate(`/${newSlug}`)
+    }
   }
 
-  const handleEpisodeChange = (e: React.ChangeEvent<{ value: unknown }>) => {
-    const epId = e.target.value as string
-    const ep = episodes.find((episode) => episode.id === epId)
+  const handleEpisodeChange = (e: SelectChangeEvent<string>) => {
+    const epId = e.target.value
+    const ep = episodes.find(e => e.id === epId)
     setSelectedEpisode(ep || null)
+    if (ep && campaignInfo) {
+      const campaignSlugComputed = computeSlug(campaignInfo.title)
+      const episodeSlugComputed = computeSlug(ep.title)
+      navigate(`/${campaignSlugComputed}/${episodeSlugComputed}`)
+    }
   }
 
   return (
@@ -129,7 +155,7 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Main container for the rest of the content */}
+      {/* Main content */}
       <Container maxWidth="md" sx={{ textAlign: 'center', py: 4 }}>
         {/* Infographic / Bulleted Highlights */}
         <Card sx={{ mb: 4, width: '100%' }}>
@@ -166,7 +192,7 @@ const Home: React.FC = () => {
           </CardContent>
         </Card>
 
-        {/* Campaign Selection Section */}
+        {/* Campaign Selection */}
         <Card sx={{ mb: 4, width: '100%' }}>
           <CardContent>
             <Typography variant="h5" gutterBottom>
@@ -184,7 +210,7 @@ const Home: React.FC = () => {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                {campaigns.map((campaign) => (
+                {campaigns.map(campaign => (
                   <MenuItem key={campaign.id} value={campaign.id}>
                     {campaign.title}
                   </MenuItem>
@@ -216,7 +242,7 @@ const Home: React.FC = () => {
               {campaignInfo.reviews && campaignInfo.reviews.length > 0 && (
                 <Box sx={{ mt: 2 }}>
                   <Typography variant="h6">Reviews</Typography>
-                  {campaignInfo.reviews.map((review) => (
+                  {campaignInfo.reviews.map(review => (
                     <Box key={review.id} sx={{ border: '1px dashed #ccc', p: 1, mb: 1, borderRadius: 1 }}>
                       <Typography variant="subtitle2">{review.source}</Typography>
                       <Typography variant="body2">
@@ -234,7 +260,7 @@ const Home: React.FC = () => {
           </Card>
         )}
 
-        {/* Episode Selection Section */}
+        {/* Episode Selection */}
         {campaignInfo && (
           <Card sx={{ mb: 4, width: '100%' }}>
             <CardContent>
@@ -254,7 +280,7 @@ const Home: React.FC = () => {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  {episodes.map((ep) => (
+                  {episodes.map(ep => (
                     <MenuItem key={ep.id} value={ep.id}>
                       {ep.title}
                     </MenuItem>

@@ -17,7 +17,7 @@ app = FastAPI(
 )
 
 build_dir = Path(__file__).parent / "frontend_build" / "build"
-app.mount("/static", StaticFiles(directory=f"{build_dir}/static"), name="static")
+app.mount("/assets", StaticFiles(directory=f"{build_dir}/assets"), name="assets")
 
 # include the routers
 app.include_router(health.router)

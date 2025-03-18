@@ -1,14 +1,27 @@
 // src/App.tsx
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
+import ReactGA from 'react-ga4'
 import { AppBar, Toolbar, Typography, Button } from '@mui/material'
 import Home from './pages/Home'
 import About from './pages/About'
 
+// Initialize react-ga4 with your GA4 Measurement ID
+ReactGA.initialize('G-G5KJRESKTS') // Replace with your actual GA4 ID
+
+// Analytics component: sends a pageview on route changes
+const Analytics: React.FC = () => {
+  const location = useLocation()
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search })
+  }, [location])
+  return null
+}
+
 const App: React.FC = () => {
   return (
     <Router>
-      {/* Full-width header at the top */}
+      <Analytics />
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -18,11 +31,10 @@ const App: React.FC = () => {
           <Button color="inherit" component={Link} to="/about">About</Button>
         </Toolbar>
       </AppBar>
-
-      {/* Main content routes */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/campaigns/:campaignSlug" element={<Home />} />
+        <Route path="/:campaignSlug" element={<Home />} />
+        <Route path="/:campaignSlug/:episodeSlug" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </Router>

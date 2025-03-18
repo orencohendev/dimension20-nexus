@@ -4,8 +4,8 @@ import { Container, Typography, Box, Link } from '@mui/material'
 
 const About: React.FC = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Box sx={{ textAlign: 'center', mb: 4, width: '100%' }}>
+    <Container maxWidth="md" sx={{ py: 4, textAlign: 'center' }}>
+      <Box sx={{ mb: 4, width: '100%' }}>
         <Typography variant="h3" gutterBottom>
           About Dimension 20 Nexus
         </Typography>
@@ -14,7 +14,7 @@ const About: React.FC = () => {
           This platform provides a free API for developers and creators, making it easy to integrate Dimension 20 data into your own applications without the hassle of web scraping.
         </Typography>
       </Box>
-      <Box sx={{ textAlign: 'center' }}>
+      <Box>
         <Typography variant="h6">Get in Touch</Typography>
         <Typography variant="body2">
           Follow us on{' '}
