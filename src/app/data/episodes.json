@@ -2572,5 +2572,23 @@
         "url": "https://www.dropout.tv/dimension-20/season:24/videos/the-battle-for-darktide",
         "air_date": "2025-02-12",
         "description": "The fate of Darktide hangs in the balance as the Queens face off with Inira's undersea forces."
+    },
+    {
+       "campaign_id": "8e6a505c-1e1a-4ba8-8342-e44086670f45",
+       "id": "a03e2c30-25e9-4115-a194-17009ddc474a",
+       "title": "Party Animals",
+       "episode_number": 1,
+       "url": "https://www.dropout.tv/dimension-20/season:25/videos/party-animals",
+       "description": "Four Righteous Wrestlers, spurned by gods, rise to challenge Athenian legends for a powerful prize.",
+       "air_date": "2025-04-02" 
+    },
+    {
+        "id": "d507b554-2dd4-462a-954b-d1bec7b20e14",
+        "campaign_id": "8e6a505c-1e1a-4ba8-8342-e44086670f45",
+        "title": "Bouts and Boogies",
+        "episode_number": 2,
+        "url": "https://www.dropout.tv/dimension-20/season:25/videos/bouts-and-boogies",
+        "air_date": "2025-04-09",
+        "description": "Fresh from match one, the wrestlers encounter Big Z himself and prepare to face down Nature's Wrath."
     }
 ]
