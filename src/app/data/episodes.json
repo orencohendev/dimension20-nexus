@@ -2590,5 +2590,23 @@
         "url": "https://www.dropout.tv/dimension-20/season:25/videos/bouts-and-boogies",
         "air_date": "2025-04-09",
         "description": "Fresh from match one, the wrestlers encounter Big Z himself and prepare to face down Nature's Wrath."
+    },
+    {
+       "id": "f7e46e01-c993-4340-aefe-8dbaee2a38c1",
+       "campaign_id": "8e6a505c-1e1a-4ba8-8342-e44086670f45",
+       "title": "A Bird in the Hand",
+       "episode_number": 3,
+       "url": "https://www.dropout.tv/dimension-20/season:25/videos/a-bird-in-the-hand",
+       "air_date": "2025-04-16",
+       "description": "As the popularity of the Party Animals grows, the forces that oppose them start fighting dirty." 
+    },
+    {
+        "id": "ffa81664-eca3-4d0a-b37a-287806c212f5",
+        "campaign_id": "8e6a505c-1e1a-4ba8-8342-e44086670f45",
+        "title": "Hope and Heroism",
+        "episode_number": 4,
+        "url": "https://www.dropout.tv/dimension-20/season:25/videos/hope-and-heroism",
+        "air_date": "2025-04-23",
+        "description": "The Righteous Wrestlers clash in the final match for the seat on Olympus."
     }
 ]
