@@ -2608,5 +2608,14 @@
         "url": "https://www.dropout.tv/dimension-20/season:25/videos/hope-and-heroism",
         "air_date": "2025-04-23",
         "description": "The Righteous Wrestlers clash in the final match for the seat on Olympus."
+    },
+    {
+        "id": "69fca392-86d1-4044-88c0-0718c01b001e",
+        "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
+        "title": "On High We Go",
+        "episode_number": 1,
+        "url": "https://www.dropout.tv/dimension-20/season:26/videos/on-high-we-go",
+        "air_date": "2025-06-04",
+        "description": "A mysterious message reunites the legendary crew of the Zephyr in search of the mythic land of Zood."
     }
 ]
