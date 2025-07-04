@@ -2614,8 +2614,44 @@
         "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
         "title": "On High We Go",
         "episode_number": 1,
-        "url": "https://www.dropout.tv/dimension-20/season:26/videos/on-high-we-go",
+        "url": "https://www.dropout.tv/dimension-20-cloudward-ho/season:1/videos/on-high-we-go",
         "air_date": "2025-06-04",
         "description": "A mysterious message reunites the legendary crew of the Zephyr in search of the mythic land of Zood."
+    },
+    {
+        "id": "4fd69f88-7f89-45ce-aa01-ee914dd8600a",
+        "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
+        "title": "The Path Out of Gath",
+        "episode_number": 2,
+        "url": "https://www.dropout.tv/dimension-20-cloudward-ho/season:1/videos/the-path-out-of-gath",
+        "air_date": "2025-06-11",
+        "description": "The crew of the Zephyr find their journey to Zood suddenly interrupted by imperial forces."
+    },
+    {
+        "id": "51191e84-7cfd-4bbc-b4b4-f92e4e4acde0",
+        "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
+        "title": "Secrets at the South Pole Station",
+        "episode_number": 3,
+        "url": "https://www.dropout.tv/dimension-20-cloudward-ho/season:1/videos/secrets-at-the-south-pole-station",
+        "air_date": "2025-06-18",
+        "description": "In the hunt for clues to Zood, the crew finds MacLeod's lab, where more than just research awaits."
+    },
+    {
+        "id": "732293ac-4773-4dc6-b80b-d61320947c26",
+        "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
+        "title": "Beyond the Biangle",
+        "episode_number": 4,
+        "url": "https://www.dropout.tv/dimension-20-cloudward-ho/season:1/videos/beyond-the-biangle",
+        "air_date": "2025-06-25",
+        "description": "Suddenly in uncharted territory, the crew investigates the mysteries of their new surroundings."
+    },
+    {
+        "id": "caaf9dcc-a51b-44a5-8406-24059349f9d0",
+        "campaign_id": "e1da2e74-ac49-405e-bbe9-e1fc69ed7515",
+        "title": "A Tussle in Tabira City",
+        "episode_number": 5,
+        "url": "https://www.dropout.tv/dimension-20-cloudward-ho/season:1/videos/a-tussle-in-tabira-city",
+        "air_date": "2025-07-02",
+        "description": "After a strange encounter, the crew of the Zephyr delve into the depths of the city to investigate."
     }
 ]
